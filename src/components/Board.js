@@ -37,6 +37,7 @@ const  Board = (props) => {
     const renderSquare = (i) => {
       return <Square 
       value = {squares[i]}
+      squareNumber = {i}
       onClick={() => handleClick(i)}
       />  
     }
@@ -62,7 +63,7 @@ const  Board = (props) => {
       }
   
       return (
-        <div>
+        <div className = "board">
           <div className="status">{status}</div>
           <div className="board-row">
             {renderSquare(0)}
