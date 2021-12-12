@@ -3,7 +3,7 @@ import React from 'react'
 const  SelectPlayer = ({seletedBoxStyle, setSelectedPlayer}) => {
     return (
         <div className = {seletedBoxStyle}>
-          <div className = "header">Tic Tak Toe</div>
+          <div className = "header">Tic Tac Toe</div>
           <div className ="content">
           <div className ="title"> Select which you want to be?</div>
           <div className = "options">
