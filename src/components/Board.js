@@ -25,7 +25,8 @@ const calculateWinner = (squares) => {
 const  Board = ({selectedPlayer, setResult}) => {
 
     const [squares, setSquares] = useState(Array(9).fill(null));
-    const [isXTurn, setIsXTurn] = useState(selectedPlayer === 'X' ? true: false);
+     
+    const [isXTurn, setIsXTurn] = useState(() => selectedPlayer === "X" ? true: false);
 
     const renderSquare = (i) => {
       return <Square 
