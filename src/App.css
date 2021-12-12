@@ -1,75 +1,181 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
-  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  background: #56baed;
   height:100vh;
   width: 100vw;
 }
 
-ol, ul {
-  padding-left: 30px;
+.select-box , .game, .result-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
+.select-box {
+  background: #fff;
+  padding: 20px 25px 25px;
+  border-radius: 5px;
+  max-width: 330px;
+  width: 100%;
+  transition: all 0.3s ease;
 }
 
-.status {
-  margin-bottom: 10px;
+.select-box-off, .game-off, .result-off {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+  display: none;
 }
 
-.square {
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 40px;
-  height: 50px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 50px;
-  color: #e4e8119f;
-}
-/* 
-.vertical {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+.select-box .header {
+  font-size: 23px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
-.horizontal {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-} */
-
-.square:focus {
-  outline: none;
+.select-box .title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 20px 0;
 }
 
-.kbd-navigation .square:focus {
-  background: #ddd;
-}
-
-.game {
+.select-box .options {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+} 
+
+.select-box .options button {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 0;
+  border: none;
+  outline: none;
+  background: #56baed;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.game-info {
-  margin-left: 20px;
+.select-box .options button:hover,
+.result-box .btn button:hover{
+   transform: scale(0.96);
+}
+
+.select-box .options .playerX {
+  margin-right: 5px;
+}
+
+.select-box .options .playerO {
+  margin-left: 5px;
+}
+
+
+.game .details {
+  background: #fff;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.game .details .players {
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+   position: relative;
+}
+
+.game .details span {
+  width: 100%;
+  color: #56baed;
+  border-radius: 5px;
+  padding: 7px 0;
+  font-size: 19px;
+  font-weight: 500;
+  cursor: default;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+.game .details span:first-child {
+  color: #fff
+}
+
+
+.game .details .slider{
+  position: absolute;
+  top : 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background: #56baed;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.game .details span.active {
+  color: #fff;
+  background: #56baed;
+  
 }
 
 .board {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+   margin-top: 20px;
 }
 
-.restart-button {
-   margin-top: 20px;
-   align-self: center;
+.board-row {
+  display: flex;
+}
+
+.square {
+  margin: 5px;
+  height: 80px;
+  width: 80px;
+  background: #fff;
+  font-size: 40px;
+  line-height: 80px;
+  text-align: center;
+  color: #56baed;
+}
+
+.result-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 350px;
+  width: 100%;
+}
+
+.result-box .won-text {
+  font-size: 25px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+}
+
+.result-box .won-text div{
+  font-weight: 700;
+  margin: 0 5px;
+}
+
+.result-box .btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.result-box .btn button{
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border: none;
+  outline: none;
+  background: #56baed;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }

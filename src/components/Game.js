@@ -1,16 +1,19 @@
 import React from 'react';
 import Board from './Board';
 
-const Game = (props) => {
+const Game = ({selectedPlayer, gameStyle, setResult}) => {
+      let xturn = "xturn";
+      let oturn = "oturn";
       return (
-        <div className="game">
-          <div className="game-board">
-            <Board />
-          </div>
-          <div className="game-info">
-            <div>{/* status */}</div>
-            <ol>{/* TODO */}</ol>
-          </div>
+        <div className = {gameStyle}>
+           <div className ="details">
+               <div className ="players">
+                   <span className = {xturn}>X's Turn</span>
+                   <span className = {oturn}>O's Turn</span>
+                   <div className = "slider"></div>
+               </div>
+           </div>
+           <Board selectedPlayer = {selectedPlayer} setResult = {setResult}/>
         </div>
       );
 }

@@ -22,17 +22,10 @@ const calculateWinner = (squares) => {
     return null;
   }
 
-const  Board = (props) => {
+const  Board = ({selectedPlayer, setResult}) => {
 
     const [squares, setSquares] = useState(Array(9).fill(null));
-    const [isXTurn, setIsXTurn] = useState(true);
-    const [status, setStatus] = useState('Next player: Your Turn!');
-
-    const restartGame = () =>{
-        setSquares(Array(9).fill(null))
-        setIsXTurn(true);
-        setStatus('Next player: Your Turn!')
-    }
+    const [isXTurn, setIsXTurn] = useState(selectedPlayer === 'X' ? true: false);
 
     const renderSquare = (i) => {
       return <Square 
@@ -51,20 +44,18 @@ const  Board = (props) => {
         const winner = calculateWinner(square);
         setSquares(square);
         setIsXTurn(!isXTurn);
-        let newStatus = "You Lost!!"
         if(winner){
-            if(winner === 'X')
-            newStatus = "Congratulations! You Won!!";
-            setStatus(newStatus);
-        }else{
-            setStatus('Next player: ' + (!isXTurn ? 'Your Turn!' : "O's Turn!"))
+            if(winner === 'X'){
+              setResult('X');
+            }else{
+                setResult('O')
+            }
         }
         
       }
   
       return (
         <div className = "board">
-          <div className="status">{status}</div>
           <div className="board-row">
             {renderSquare(0)}
             {renderSquare(1)}
@@ -80,7 +71,6 @@ const  Board = (props) => {
             {renderSquare(7)}
             {renderSquare(8)}
           </div>
-          <button className = "restart-button" onClick = {() => restartGame()}>Restart Game</button>
         </div>
       );
 }
